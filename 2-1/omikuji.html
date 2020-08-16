@@ -1,11 +1,36 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+  <link rel="stylesheet" href="https://cdn.rawgit.com/necolas/normalize.css/master/normalize.css">
+  <link rel="stylesheet" href="https://cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css">
 </head>
 <body>
-    
+  <div class="container">
+    <h1>おみくじ</h1>
+    <div id="result"></div>
+    <button id="button">おみくじを引く</button>
+  </div>
+
+  <script>
+    var button = document.getElementById('button');
+    var result = document.getElementById('result');
+
+    var omikuji = ['大吉','吉','凶'];
+
+    button.addEventListener('click', function(){
+      result.textContent = null;
+
+      // 0から2までの整数をランダムで生成する
+      var index = Math.floor(Math.random() * 3);
+      console.log(index);
+      result.textContent = '結果は・・・　' + omikuji[index] + '！';
+
+      button.textContent = 'もう一度おみくじを引く';
+    });
+  </script>
 </body>
 </html>
